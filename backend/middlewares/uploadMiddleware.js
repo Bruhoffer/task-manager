@@ -20,3 +20,7 @@ const fileFilter = (req, file, cb) => {
         cb(new Error('Invalid file type. Only JPEG, PNG, and GIF are allowed.'), false); // Reject file
     }
 }
+
+const upload = multer({ storage, fileFilter });
+
+module.exports = upload;
