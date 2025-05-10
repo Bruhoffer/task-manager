@@ -63,6 +63,6 @@ const Root = () => {
     return user.role === "admin" ? (
       <Navigate to="/admin/dashboard" />
     ) : (
-      <Navigate to="/user/dashboard" />
+      <Navigate to="/user/userdashboard" />
     );
 };
