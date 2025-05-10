@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 // @access  Private(Admin)
 const getUsers = async(req, res) => {
     try {
-        const users = await User.find({ role: "member"}).select("-password");
+        const users = await User.find({ role: { $in: ["member", "admin"] }}).select("-password");
 
         // Add task counts to each user
         const userwithTaskCounts = await Promise.all(users.map(async (user) => {
