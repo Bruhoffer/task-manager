@@ -24,7 +24,7 @@ const SignUp = () => {
 
     const [error, setError] = useState(null);
 
-    //Handle Login Form Submit
+    //Handle SignUp Form Submit
     const handleSignUp = async (e) => {
         e.preventDefault();
 
