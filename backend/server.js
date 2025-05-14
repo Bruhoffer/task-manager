@@ -16,8 +16,7 @@ const reportRoutes = require("./routes/reportRoutes");
 //   methods: ["GET", "POST", "PUT", "DELETE"],
 //   allowedHeaders: ["Content-Type", "Authorization"],
 // }));
-app.use(cors()); // <-- SIMPLIFIED: Allow all origins for testing
-
+app.use(cors()); 
 // Connect Database
 connectDB();
 

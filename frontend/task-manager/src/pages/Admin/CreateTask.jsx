@@ -22,7 +22,7 @@ const CreateTask = () => {
     title: "",
     description: "",
     priority: "Low",
-    dueDate: null,
+    dueDate: "",
     assignedTo: [],
     todoChecklist: [],
     attachments:[]
@@ -51,7 +51,31 @@ const CreateTask = () => {
   };
 
   // Create Task
-  const createTask = async () => {};
+  const createTask = async () => {
+    setLoading(true);
+
+    try {
+      const todolist = taskData.todoChecklist?.map((item) => ({
+        text:item,
+        completed:false
+      }));
+
+      const response = await axiosInstance.post(API_PATHS.TASKS.CREATE_TASK, {
+        ...taskData,
+        dueDate: new Date(taskData.dueDate).toISOString(),
+        todoChecklist: todolist,
+      });
+
+      toast.success("Task Created Successfully");
+
+      clearData();
+    } catch (error) {
+      console.error("Error creating task: ", error);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Update Task
   const updateTask = async () => {};
